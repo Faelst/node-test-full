@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import { CreateUserService } from "./CreateUserService";
+import { Request, Response } from 'express';
+import { CreateUserService } from './CreateUserService';
 
 class CreateUserController {
   constructor(private createUser: CreateUserService) {}
@@ -8,7 +8,7 @@ class CreateUserController {
     const { email, username, name } = request.body;
     const user = await this.createUser.execute({ email, username, name });
 
-    return response.json(user);
+    return response.status(201).json(user);
   }
 }
 
